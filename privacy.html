@@ -160,7 +160,7 @@
 
     <div class="content">
       <h1>Privacy Policy</h1>
-      <p class="effective-date">Effective date: March 26, 2026</p>
+      <p class="effective-date">Effective date: April 19, 2026</p>
 
       <div class="highlight-box">
         <p>Timehaven is designed with your privacy in mind. Your data stays on your device. We don't collect, store, or sell your personal information.</p>
@@ -171,10 +171,11 @@
       <ul>
         <li><strong>Focus session data</strong> &mdash; session duration, completion status, and timestamps</li>
         <li><strong>Daily records</strong> &mdash; total focus minutes and session counts per day</li>
+        <li><strong>Aggregate Screen Time data</strong> (optional) &mdash; if you grant permission, Timehaven receives threshold events from iOS when your total daily screen time crosses configurable milestones (e.g., 80% and 100% of your daily goal). Timehaven never receives individual app names, per-app usage breakdowns, or browsing activity.</li>
         <li><strong>Creature and garden state</strong> &mdash; your companion's mood, health, and garden growth progress</li>
         <li><strong>App preferences</strong> &mdash; your creature's name, default session duration, and settings</li>
       </ul>
-      <p>All of this data is stored <strong>locally on your device</strong> using Apple's SwiftData framework. It never leaves your phone.</p>
+      <p>All of this data is stored <strong>locally on your device</strong> using Apple's SwiftData framework and App Group shared storage. It never leaves your phone.</p>
 
       <h2>What We Don't Collect</h2>
       <p>Timehaven does <strong>not</strong> collect, transmit, or store:</p>
@@ -187,7 +188,16 @@
       </ul>
 
       <h2>Screen Time Data</h2>
-      <p>Timehaven does not currently access or use Apple's Screen Time data. The App uses a built-in focus timer to track sessions you initiate manually. No device usage data is collected or accessed.</p>
+      <p>Timehaven uses Apple's <strong>Family Controls</strong> and <strong>DeviceActivity</strong> frameworks to optionally measure your daily phone use. This feature is strictly opt-in &mdash; it is only active after you explicitly grant Screen Time access through iOS.</p>
+      <p>How it works:</p>
+      <ul>
+        <li>Timehaven registers a daily monitoring schedule (midnight to midnight) with iOS, along with usage thresholds tied to your daily goal.</li>
+        <li>When your total device screen time crosses a threshold (e.g., 80% or 100% of your goal), iOS sends a callback to a Timehaven extension running on your device.</li>
+        <li>The extension writes only aggregate totals (minutes used, pickup count) to Timehaven's private on-device storage. The main Timehaven app reads these totals to adjust your creature's mood and garden state.</li>
+        <li>Individual app names, websites visited, and per-app usage breakdowns are <strong>never accessed, transmitted, or stored</strong>. Timehaven does not request the "App and Website Usage" entitlement.</li>
+      </ul>
+      <p>You can revoke Screen Time access at any time through <a href="https://support.apple.com/en-us/HT208982" target="_blank" rel="noopener">iOS Settings &gt; Screen Time</a>. Revocation stops all monitoring immediately. Timehaven's focus timer continues to work even if Screen Time access is denied or revoked.</p>
+      <p>No Screen Time data ever leaves your device. There are no servers, analytics pipelines, or cloud backups involved.</p>
 
       <h2>Subscriptions</h2>
       <p>If you subscribe to Timehaven Premium, the transaction is handled entirely by Apple through the App Store. We receive confirmation that you have an active subscription, but we do not receive your payment details, Apple ID, or billing information. See <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple's Privacy Policy</a> for details on how Apple handles purchases.</p>
