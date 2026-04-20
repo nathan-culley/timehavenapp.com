@@ -737,7 +737,7 @@
        ========================================== -->
   <section class="hero">
     <div class="container">
-      <span class="hero__badge">Coming Soon to iOS</span>
+      <span class="hero__badge">Now Available on iOS</span>
 
       <!-- VARIANT A: Motivation framing (default) -->
       <div id="hero-variant-a">
@@ -752,8 +752,7 @@
       </div>
 
       <div class="hero__cta-group">
-        <a href="#waitlist" class="btn btn--primary btn--large">Join the Waitlist &rarr;</a>
-        <a href="#waitlist-deal" class="btn btn--secondary hero__secondary-cta" id="hero-deal-cta">Get Early Access &mdash; 50% Off Your First Year</a>
+        <a href="https://apps.apple.com/us/app/timehaven/id6760618277" class="btn btn--primary btn--large">Download on the App Store &rarr;</a>
       </div>
 
       <div class="hero__mockup">
@@ -873,41 +872,10 @@
   </section>
 
   <!-- ==========================================
-       PRICING
+       PRICING — removed during post-launch landing page cleanup (2026-04-19)
+       TODO: restore when premium subscription is reintroduced (see
+       Timehaven Dashboard for v1.2+ roadmap)
        ========================================== -->
-  <section class="section section--alt">
-    <div class="container">
-      <h2 class="section-header text-center">Start free. Grow into more.</h2>
-
-      <div class="pricing-grid">
-        <div class="pricing-card">
-          <div class="pricing-card__name">Free</div>
-          <div class="pricing-card__price">$0</div>
-          <div class="pricing-card__period">forever</div>
-          <ul class="pricing-card__features">
-            <li>One companion creature</li>
-            <li>4&times;4 garden</li>
-            <li>Focus session timer</li>
-            <li>Simple stats</li>
-          </ul>
-        </div>
-        <div class="pricing-card pricing-card--featured">
-          <div class="pricing-card__name">Premium</div>
-          <div class="pricing-card__price">$3.99</div>
-          <div class="pricing-card__period">per month &bull; or $29.99/year</div>
-          <ul class="pricing-card__features">
-            <li>New creature species &amp; seasonal content</li>
-            <li>Creature outfits, evolution &amp; abilities</li>
-            <li>Detailed analytics &amp; trends</li>
-            <li>Lock Screen Live Activities</li>
-            <li>New content every season</li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="pricing__footnote">Launching soon on iOS. Android to follow.</p>
-    </div>
-  </section>
 
   <!-- ==========================================
        SOCIAL PROOF / WHY NOW
@@ -936,60 +904,16 @@
   </section>
 
   <!-- ==========================================
-       EMAIL CAPTURE
+       APP STORE DOWNLOAD
        ========================================== -->
-  <section class="section section--alt" id="waitlist">
+  <section class="section section--alt">
     <div class="container">
       <div class="capture">
-        <h2 class="section-header">Be the first to meet your companion.</h2>
-        <p class="section-subtext mx-auto text-center">Join the waitlist and we'll let you know when we launch. Early supporters get first access and a say in shaping the app.</p>
+        <h2 class="section-header text-center">Meet your companion today.</h2>
+        <p class="section-subtext mx-auto text-center">Timehaven is free on the App Store. Your garden is ready.</p>
 
-        <!--
-          FORM: Replace mdapkgaa with your actual Formspree endpoint.
-          Alternative: Use Netlify Forms by adding netlify attribute to form tag.
-        -->
-        <form class="capture__form" id="waitlist-form" action="https://formspree.io/f/mdapkgaa" method="POST">
-          <!-- Hidden fields for tracking -->
-          <input type="hidden" name="_subject" value="New Waitlist Signup">
-          <input type="hidden" name="variant" id="variant-field" value="A">
-          <input type="hidden" name="cta_type" id="cta-type-field" value="standard">
-          <input type="hidden" name="utm_source" id="utm-source-field" value="">
-          <input type="hidden" name="utm_campaign" id="utm-campaign-field" value="">
-
-          <div class="capture__input-group">
-            <input type="email" name="email" class="capture__input" placeholder="your@email.com" required aria-label="Email address">
-            <button type="submit" class="btn btn--primary">Join the Waitlist &rarr;</button>
-          </div>
-
-          <label class="capture__label" for="struggle">What's your biggest screen time struggle? (optional)</label>
-          <textarea name="struggle" id="struggle" class="capture__textarea" placeholder="e.g. I open Instagram without thinking, I scroll in bed until 2am..."></textarea>
-        </form>
-
-        <!-- Success message -->
-        <div class="capture__success" id="form-success">
-          <p>You're in! We'll be in touch soon. In the meantime, your future companion is already getting excited.</p>
-        </div>
-
-        <!-- Secondary CTA: 50% off -->
-        <div class="capture__secondary" id="waitlist-deal">
-          <p>Want a deal? <strong>Get 50% off your first year</strong> when you sign up for early access.</p>
-          <form id="deal-form" action="https://formspree.io/f/mdapkgaa" method="POST">
-            <input type="hidden" name="_subject" value="New Waitlist Signup (50% Off)">
-            <input type="hidden" name="variant" id="deal-variant-field" value="A">
-            <input type="hidden" name="cta_type" value="fifty_percent_off">
-            <input type="hidden" name="utm_source" id="deal-utm-source-field" value="">
-            <input type="hidden" name="utm_campaign" id="deal-utm-campaign-field" value="">
-
-            <div class="capture__input-group">
-              <input type="email" name="email" class="capture__input" placeholder="your@email.com" required aria-label="Email address for early access deal">
-              <button type="submit" class="btn btn--secondary">Get 50% Off &rarr;</button>
-            </div>
-          </form>
-        </div>
-
-        <!-- Deal success message -->
-        <div class="capture__success" id="deal-success">
-          <p>You're locked in for 50% off! We'll send your early access details before anyone else.</p>
+        <div class="text-center" style="margin-top: 1.5rem;">
+          <a href="https://apps.apple.com/us/app/timehaven/id6760618277" class="btn btn--primary btn--large">Download on the App Store &rarr;</a>
         </div>
       </div>
     </div>
@@ -1016,13 +940,14 @@
   <script>
     (function() {
       // ---- A/B TEST ----
-      // Determine variant from URL param or random assignment
-      // Use ?variant=b to force variant B, otherwise random 50/50
+      // Determine variant from URL param or random assignment.
+      // Use ?variant=b to force variant B, otherwise random 50/50.
+      // Note: post-launch we no longer capture conversion data here — A/B
+      // is visual only until we re-wire analytics (e.g. Plausible, GA) later.
       const params = new URLSearchParams(window.location.search);
       let variant = params.get('variant');
 
       if (!variant) {
-        // Random assignment, stored in sessionStorage for consistency
         variant = sessionStorage.getItem('lp_variant');
         if (!variant) {
           variant = Math.random() < 0.5 ? 'a' : 'b';
@@ -1036,59 +961,6 @@
         document.getElementById('hero-variant-a').style.display = 'none';
         document.getElementById('hero-variant-b').style.display = 'block';
       }
-
-      // Set variant in form hidden fields
-      document.getElementById('variant-field').value = variant.toUpperCase();
-      document.getElementById('deal-variant-field').value = variant.toUpperCase();
-
-      // ---- UTM TRACKING ----
-      const utmSource = params.get('utm_source') || '';
-      const utmCampaign = params.get('utm_campaign') || '';
-
-      document.getElementById('utm-source-field').value = utmSource;
-      document.getElementById('utm-campaign-field').value = utmCampaign;
-      document.getElementById('deal-utm-source-field').value = utmSource;
-      document.getElementById('deal-utm-campaign-field').value = utmCampaign;
-
-      // ---- FORM SUBMISSION (with fetch for AJAX) ----
-      function handleFormSubmit(formEl, successEl) {
-        formEl.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const data = new FormData(formEl);
-
-          fetch(formEl.action, {
-            method: 'POST',
-            body: data,
-            headers: { 'Accept': 'application/json' }
-          }).then(function(response) {
-            if (response.ok) {
-              formEl.style.display = 'none';
-              successEl.classList.add('is-visible');
-            } else {
-              alert('Something went wrong. Please try again.');
-            }
-          }).catch(function() {
-            alert('Something went wrong. Please try again.');
-          });
-        });
-      }
-
-      handleFormSubmit(
-        document.getElementById('waitlist-form'),
-        document.getElementById('form-success')
-      );
-
-      handleFormSubmit(
-        document.getElementById('deal-form'),
-        document.getElementById('deal-success')
-      );
-
-      // ---- DEAL CTA TRACKING ----
-      // Track when someone clicks the hero "50% off" link
-      document.getElementById('hero-deal-cta').addEventListener('click', function() {
-        // Could send an analytics event here
-        // gtag('event', 'click', { event_category: 'cta', event_label: 'hero_deal' });
-      });
     })();
   </script>
 
